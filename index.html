@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Александр Колесников | Премиум портфолио веб-разработчика</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0A0C10;
+            color: #E8EDEE;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* custom scroll */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #181E22;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C9A03D;
+            border-radius: 8px;
+        }
+
+        /* header - dark luxury */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 28px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+            border-bottom: 1px solid rgba(201, 160, 61, 0.25);
+        }
+
+        .logo {
+            font-size: 1.9rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #F5E7C8, #C9A03D);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .logo span {
+            color: #C9A03D;
+            background: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 42px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #CDD5D9;
+            transition: 0.2s;
+            letter-spacing: 0.3px;
+        }
+        .nav-links a:hover {
+            color: #C9A03D;
+        }
+
+        .btn-contact {
+            background: transparent;
+            border: 1.5px solid #C9A03D;
+            color: #C9A03D;
+            padding: 10px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.25s;
+            backdrop-filter: blur(4px);
+        }
+        .btn-contact:hover {
+            background: #C9A03D;
+            color: #0A0C10;
+            box-shadow: 0 0 12px rgba(201,160,61,0.4);
+        }
+
+        /* hero */
+        .hero {
+            padding: 80px 0 80px;
+            background: radial-gradient(circle at 80% 20%, #141A1F, #0A0C10);
+            border-radius: 0 0 48px 48px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" opacity="0.03"><path fill="none" stroke="%23C9A03D" stroke-width="0.6" d="M0 400 L800 400 M400 0 L400 800 M200 200 L600 600 M200 600 L600 200"/></svg>');
+            background-size: 60px;
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 48px;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-content {
+            flex: 1;
+            min-width: 280px;
+        }
+        .hero-badge {
+            background: rgba(201, 160, 61, 0.12);
+            color: #DDB45E;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 24px;
+            backdrop-filter: blur(4px);
+            border: 0.5px solid rgba(201,160,61,0.3);
+        }
+        .hero-content h1 {
+            font-size: 3.4rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #FFFFFF, #C9A03D);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #B0BDC2;
+            margin-bottom: 32px;
+            max-width: 90%;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 36px;
+            margin-top: 20px;
+        }
+        .stat .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #C9A03D;
+        }
+        .hero-image {
+            flex: 1;
+            background: radial-gradient(circle at center, #1F2A2E, #0F1417);
+            border-radius: 32px;
+            min-height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            border: 1px solid rgba(201,160,61,0.3);
+            box-shadow: 0 25px 40px -15px rgba(0,0,0,0.6);
+            backdrop-filter: blur(2px);
+        }
+
+        /* section styles */
+        .section {
+            padding: 100px 0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.6rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+            background: linear-gradient(135deg, #F5EFE0, #C9A03D);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .section-sub {
+            text-align: center;
+            color: #8D9DA4;
+            max-width: 680px;
+            margin: 0 auto 56px;
+            font-size: 1.1rem;
+        }
+
+        /* project cards luxury dark */
+        .projects-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 36px;
+            justify-content: center;
+        }
+        .project-card {
+            background: #11161B;
+            border-radius: 32px;
+            overflow: hidden;
+            flex: 1 1 320px;
+            max-width: 380px;
+            transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            border: 1px solid rgba(201,160,61,0.2);
+            box-shadow: 0 20px 30px -15px rgba(0,0,0,0.5);
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: #C9A03D;
+            box-shadow: 0 30px 40px -12px rgba(0,0,0,0.6), 0 0 0 1px rgba(201,160,61,0.2);
+        }
+        .project-preview {
+            height: 210px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+        .preview-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(10,12,16,0.85);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            opacity: 0;
+            transition: 0.3s;
+        }
+        .project-card:hover .preview-overlay {
+            opacity: 1;
+        }
+        .preview-overlay a {
+            background: #C9A03D;
+            padding: 10px 22px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: #0A0C10;
+            transition: 0.2s;
+            letter-spacing: 0.5px;
+        }
+        .preview-overlay a:hover {
+            background: #E2BC5C;
+            transform: scale(1.02);
+        }
+        .project-info {
+            padding: 28px;
+        }
+        .project-category {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            color: #C9A03D;
+            margin-bottom: 10px;
+        }
+        .project-info h3 {
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+            color: #F2F4F5;
+        }
+        .project-info p {
+            color: #9BAEB5;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .tech-tags span {
+            background: #1C262B;
+            padding: 5px 14px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #C9A03D;
+            letter-spacing: 0.3px;
+        }
+
+        /* about + contact gold */
+        .about-section {
+            background: linear-gradient(115deg, #0F151A 0%, #0A0F12 100%);
+            border-radius: 48px;
+            margin: 40px 0;
+            border: 1px solid rgba(201,160,61,0.25);
+        }
+        .about-inner {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+            align-items: center;
+            padding: 56px 48px;
+        }
+        .about-text {
+            flex: 2;
+        }
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 24px;
+            color: #F5E7C8;
+        }
+        .about-text p {
+            color: #BECBD0;
+            font-size: 1rem;
+        }
+        .contact-card {
+            flex: 1;
+            background: #111A1F;
+            border-radius: 32px;
+            padding: 36px 24px;
+            text-align: center;
+            border: 1px solid rgba(201,160,61,0.4);
+            transition: 0.2s;
+        }
+        .contact-card i {
+            font-size: 2.8rem;
+            color: #C9A03D;
+            margin-bottom: 18px;
+        }
+        .contact-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+        .contact-btn {
+            background: #C9A03D;
+            color: #0A0C10;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 700;
+            margin-top: 24px;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.9rem;
+        }
+        .contact-btn:hover {
+            background: #DDB45E;
+            transform: scale(1.02);
+            box-shadow: 0 0 12px rgba(201,160,61,0.5);
+        }
+
+        footer {
+            background: #05080A;
+            color: #7D939C;
+            padding: 48px 0 32px;
+            text-align: center;
+            border-top: 1px solid rgba(201,160,61,0.2);
+            margin-top: 40px;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin: 24px 0;
+        }
+        .social-links a {
+            color: #9AB0B8;
+            font-size: 1.6rem;
+            transition: 0.2s;
+        }
+        .social-links a:hover {
+            color: #C9A03D;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.4rem;
+            }
+            .navbar {
+                flex-direction: column;
+            }
+            .about-inner {
+                padding: 32px 24px;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">A<span>K</span> // CODE & ART</div>
+                <ul class="nav-links">
+                    <li><a href="#portfolio">ПОРТФОЛИО</a></li>
+                    <li><a href="#about">О МНЕ</a></li>
+                    <li><a href="#contact">КОНТАКТЫ</a></li>
+                </ul>
+                <button class="btn-contact" id="openContactBtn">СВЯЗАТЬСЯ</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge"><i class="fas fa-crown"></i> LUXURY WEB CRAFTSMAN</div>
+                    <h1>Премиум веб‑решения <br> для вашего бизнеса</h1>
+                    <p>Эстетика, скорость и безупречный код. Создаю цифровые шедевры, которые работают на имидж и продажи.</p>
+                    <div class="hero-stats">
+                        <div class="stat"><span class="stat-number">3+</span><br>эксклюзивных проекта</div>
+                        <div class="stat"><span class="stat-number">100%</span><br>индивидуальный подход</div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <i class="fas fa-gem" style="font-size: 4rem; color:#C9A03D;"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="section">
+        <div class="container">
+            <h2 class="section-title">Избранные работы</h2>
+            <p class="section-sub">Каждый проект — уникальный стиль, глубокая проработка интерфейса и адаптивность. Нажмите, чтобы оценить живой сайт.</p>
+            <div class="projects-grid" id="projectsContainer"></div>
+        </div>
+    </section>
+
+    <div class="container" id="about">
+        <div class="about-section">
+            <div class="about-inner">
+                <div class="about-text">
+                    <h3>Воплощаю идеи в изысканный код</h3>
+                    <p>Я — Александр, веб-разработчик с вниманием к деталям и чувством стиля. Создаю сайты, которые не просто работают — они вдохновляют. Использую современный стек (HTML5, CSS3, JavaScript, React), чтобы каждый пиксель был на своём месте. Премиальный дизайн, плавные анимации и безупречная адаптивность — стандарт моей работы.</p>
+                    <p style="margin-top: 18px;">✨ Индивидуальный подход к каждому проекту.<br>
+                    ✨ Чистый, поддерживаемый код.<br>
+                    ✨ Ориентация на люксовый сегмент и высокие стандарты.</p>
+                </div>
+                <div class="contact-card" id="contact">
+                    <i class="fas fa-feather-alt"></i>
+                    <h4>Начнём ваш проект?</h4>
+                    <p>Обсудим детали, сроки и создадим сайт, который будет выделять вас среди конкурентов.</p>
+                    <button class="contact-btn" id="showContactModal">Написать</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="logo" style="background: none; color:#C9A03D;">A<span style="color:#F5E7C8;">K</span> // PORTFOLIO</div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-telegram"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p>© 2025 Премиум портфолио. Все права защищены. Создано с чувством стиля.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Ваши реальные проекты со ссылками
+        const projectsData = [
+            {
+                title: "Элегия СПА",
+                category: "Лендинг / Wellness",
+                description: "Роскошный сайт для спа-салона с атмосферой релакса, карточками процедур и элегантной типографикой.",
+                tech: ["HTML5", "CSS3", "Адаптив", "Анимации"],
+                previewGradient: "linear-gradient(125deg, #1e2b26, #0f1916), url('https://placehold.co/600x400/2C3E35/C9A03D?text=SPA+LUXE')",
+                liveUrl: "https://malacalan.github.io/spa/"
+            },
+            {
+                title: "Строй Глэмп",
+                category: "Корпоративный сайт",
+                description: "Сайт строительной компании: современный эко-дизайн, премиальные проекты домов и глэмпингов.",
+                tech: ["Интерактив", "Сетка", "Адаптив"],
+                previewGradient: "linear-gradient(145deg, #192f2a, #0e1c18), url('https://placehold.co/600x400/2A3F38/C9A03D?text=Stroy+Lux')",
+                liveUrl: "https://malacalan.github.io/Stroy/"
+            },
+            {
+                title: "Фотограф | Art",
+                category: "Портфолио / Галерея",
+                description: "Минималистичный, но выразительный сайт-портфолио для фотографа с акцентом на визуальный ряд.",
+                tech: ["Адаптив", "Галерея", "CSS Grid"],
+                previewGradient: "linear-gradient(115deg, #2e241f, #1b130f), url('https://placehold.co/600x400/4F3A2C/C9A03D?text=Photo+Art')",
+                liveUrl: "https://malacalan.github.io/fgraf/"
+            }
+        ];
+
+        function renderProjects() {
+            const container = document.getElementById('projectsContainer');
+            if (!container) return;
+            container.innerHTML = '';
+            projectsData.forEach(proj => {
+                const card = document.createElement('div');
+                card.className = 'project-card';
+                card.innerHTML = `
+                    <div class="project-preview" style="background-image: ${proj.previewGradient}; background-blend-mode: overlay; background-size: cover;">
+                        <div class="preview-overlay">
+                            <a href="${proj.liveUrl}" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-right"></i> Открыть сайт</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-category">${proj.category}</div>
+                        <h3>${proj.title}</h3>
+                        <p>${proj.description}</p>
+                        <div class="tech-tags">
+                            ${proj.tech.map(t => `<span>${t}</span>`).join('')}
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // контактные действия (копирование email + изящное уведомление)
+        function setupLuxuryContact() {
+            const openModalBtn = document.getElementById('showContactModal');
+            const openNavBtn = document.getElementById('openContactBtn');
+            const showContact = () => {
+                const userConfirmed = confirm("📩 Свяжитесь со мной в премиум-формате:\n\nTelegram: @ak_luxury_dev\nEmail: a.kolesnikov@luxweb.ru\n\nНажмите «OK», чтобы скопировать email в буфер.");
+                if (userConfirmed) {
+                    navigator.clipboard.writeText("a.kolesnikov@luxweb.ru").then(() => {
+                        alert("Email скопирован! Напишите мне — создадим ваш идеальный сайт.");
+                    }).catch(() => {
+                        alert("a.kolesnikov@luxweb.ru — жду ваше сообщение!");
+                    });
+                }
+            };
+            if(openModalBtn) openModalBtn.addEventListener('click', showContact);
+            if(openNavBtn) openNavBtn.addEventListener('click', showContact);
+        }
+
+        function smoothScrollLinks() {
+            const links = document.querySelectorAll('.nav-links a, .btn-contact, .contact-btn');
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href && href.startsWith('#')) {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if(target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        }
+
+        renderProjects();
+        setupLuxuryContact();
+        smoothScrollLinks();
+    </script>
+</body>
+</html>
